@@ -1,8 +1,10 @@
 "use client";
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { useAuth } from "@/context/GlobalContect";
 
 export default function LoginPage() {
@@ -10,10 +12,8 @@ export default function LoginPage() {
   const [password, setPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
-  const router = useRouter();
   const { isUserLoggedIn, setIsUserLoggedIn } = useAuth() || {};
-
-  console.log("isUserLoggedIn", isUserLoggedIn);
+  const router = useRouter();
 
   const handleLogin = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -28,6 +28,7 @@ export default function LoginPage() {
       );
 
       if (response.status === 200) {
+        toast.success("Logged in successfully!");
         if (setIsUserLoggedIn) {
           setIsUserLoggedIn(true);
           localStorage.setItem("isUserLoggedIn", "true");
@@ -36,8 +37,10 @@ export default function LoginPage() {
       }
     } catch (err: any) {
       if (err.response?.status === 401) {
+        toast.error("Invalid email or password. Please try again.");
         setError("Invalid email or password. Please try again.");
       } else {
+        toast.error("Something went wrong. Please try again later.");
         setError("Something went wrong. Please try again later.");
       }
     } finally {
@@ -49,6 +52,11 @@ export default function LoginPage() {
     <>
       <div className="flex min-h-full bg-gray-50 flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+          <div>
+            <h2 className="mb-8 text-2xl/9 text-center font-bold tracking-tight text-gray-900">
+              Sign in to your account
+            </h2>
+          </div>
           <div className="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
@@ -92,9 +100,6 @@ export default function LoginPage() {
                   />
                 </div>
               </div>
-
-              {error && <p className="text-red-500 text-sm">{error}</p>}
-
               <div>
                 <button
                   type="submit"
