@@ -1,17 +1,21 @@
+"use client";
 /* eslint-disable @typescript-eslint/no-explicit-any */
-"use client"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { useAuth } from "@/context/GlobalContect";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
   const router = useRouter();
+  const { isUserLoggedIn, setIsUserLoggedIn } = useAuth() || {};
 
-  const handleLogin = async (e: { preventDefault: () => void; }) => {
+  console.log("isUserLoggedIn", isUserLoggedIn);
+
+  const handleLogin = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setLoading(true);
     setError("");
@@ -23,11 +27,12 @@ export default function LoginPage() {
         { headers: { "Content-Type": "application/json" } }
       );
 
-      console.log("response",response);
       if (response.status === 200) {
-        console.log("Login successful", response.data);
-        // For login tokenization
-        router.push("/video-list");
+        if (setIsUserLoggedIn) {
+          setIsUserLoggedIn(true);
+          localStorage.setItem("isUserLoggedIn", "true");
+        }
+        router.push("/");
       }
     } catch (err: any) {
       if (err.response?.status === 401) {

@@ -1,8 +1,9 @@
+"use client";
+
 import HomePage from "./HomePage/page";
+import { useAuth } from "@/context/GlobalContect";
+import VideosDashboard from "@/components/Dashboard/Dashboard";
 export default function Home() {
-  return (
-    <>
-      <HomePage />
-    </>
-  );
+  const { isUserLoggedIn } = useAuth() || {};
+  return <>{isUserLoggedIn ? <VideosDashboard /> : <HomePage />}</>;
 }

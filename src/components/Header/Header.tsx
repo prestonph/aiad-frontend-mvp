@@ -5,9 +5,12 @@ import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Button from "../Button/Button";
+import { useAuth } from "@/context/GlobalContect";
+import { ProfileDropdown } from "../ProfileDropdown/ProfileDropdown";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isUserLoggedIn } = useAuth() || {};
 
   return (
     <header className="bg-white">
@@ -18,31 +21,32 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href={"/"}>
             <span className="sr-only">AIAD</span>
-            <h2 className="text-black font-extrabold text-2xl">
-              Ads Video AI
-            </h2>
+            <h2 className="text-black font-extrabold text-2xl">Ads Video AI</h2>
           </Link>
         </div>
-        <div className="flex items-center justify-end gap-x-6">
-          <Link
-            href="/login"
-            className="hidden text-sm/6 font-semibold text-gray-900 lg:block"
-          >
-            Log in
-          </Link>
-          <Button
-            variant="primary"
-            size="md"
-            className="rounded-md shadow-lg"
-          // onClick={() => alert('Custom Button')}
-          >
+        {isUserLoggedIn ? (
+          <div className="flex items-center gap-x-6">
+            <ProfileDropdown />
+          </div>
+        ) : (
+          <div className="flex items-center justify-end gap-x-6">
             <Link
-              href="/register"
+              href="/login"
+              className="hidden text-sm/6 font-semibold text-gray-900 lg:block"
             >
-              Sign up
+              Log in
             </Link>
-          </Button>
-        </div>
+            <Button
+              variant="primary"
+              size="md"
+              className="rounded-md shadow-lg"
+              // onClick={() => alert('Custom Button')}
+            >
+              <Link href="/register">Sign up</Link>
+            </Button>
+          </div>
+        )}
+
         <div className="flex lg:hidden">
           <button
             type="button"
