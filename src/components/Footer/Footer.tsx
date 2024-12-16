@@ -32,7 +32,7 @@ export default function Footer() {
   return (
     <footer className="bg-white">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="border-t border-gray-900/10 py-8 sm:mt-20 md:flex md:items-center md:justify-between">
+        <div className="border-t border-gray-900/10 py-8 sm:mt-20 flex items-center justify-between">
           <div className="flex gap-x-6 md:order-2">
             {navigation.social.map((item) => (
               <a
@@ -45,7 +45,7 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-sm/6 text-gray-600 md:order-1 md:mt-0">
+          <p className="text-sm/6 text-gray-600 md:order-1 md:mt-0">
             Powered by{" "}
             <Link href={""} className="text-blue-600 font-bold">
               Supabase
