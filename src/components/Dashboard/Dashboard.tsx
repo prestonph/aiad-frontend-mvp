@@ -1,27 +1,27 @@
-'use client'
+"use client";
 
-import Button from '@/components/Button/Button'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import Button from "@/components/Button/Button";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 interface Video {
-  id: number
-  status: 'generating' | 'completed'
-  slug: string
+  id: number;
+  status: "generating" | "completed";
+  slug: string;
 }
 
 export default function VideosDashboard() {
-  const [url, setUrl] = useState('')
-  const router = useRouter()
+  const [url, setUrl] = useState("");
+  const router = useRouter();
 
   const [videos] = useState<Video[]>([
-    { id: 1, status: 'generating', slug: 'video-1' },
-    { id: 2, status: 'completed', slug: 'video-2' },
-    { id: 3, status: 'completed', slug: 'video-3' }
-  ])
+    { id: 1, status: "generating", slug: "video-1" },
+    { id: 2, status: "completed", slug: "video-2" },
+    { id: 3, status: "completed", slug: "video-3" },
+  ]);
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-  }
+    e.preventDefault();
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-6 ">
@@ -48,11 +48,10 @@ export default function VideosDashboard() {
             variant="primary"
             size="md"
             className="rounded-md shadow-lg mt-6 w-full "
-          // onClick={() => alert('Custom Button')}
+            // onClick={() => alert('Custom Button')}
           >
             Generate Video (1 Credit)
           </Button>
-
         </form>
       </div>
 
@@ -61,7 +60,7 @@ export default function VideosDashboard() {
           <div key={video.id} className="flex flex-col items-center">
             {/* Video Container */}
             <div className="relative aspect-video bg-black rounded-lg flex items-center justify-center h-96 w-full">
-              {video.status === 'generating' && (
+              {video.status === "generating" && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <svg
                     className="animate-spin h-8 w-8 text-blue-500"
@@ -87,19 +86,19 @@ export default function VideosDashboard() {
               )}
             </div>
 
-            {/* Bottom Outside Text */}
-            <div className="mt-2 text-center" onClick={() => router.push(`vedios/${video.slug}`)}>
-              <h1
-                className="text-black hover:underline text-2xl font-semibold"
-              >
-                video {video.id}<br />
-                {video.status === 'generating' && ' (generating)'}
+            <div
+              className="mt-2 text-center"
+              onClick={() => router.push(`vedios/${video.slug}`)}
+            >
+              <h1 className="text-black hover:underline text-2xl font-semibold">
+                video {video.id}
+                <br />
+                {video.status === "generating" && " (generating)"}
               </h1>
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
-

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
+import { AuthProvider } from "@/context/GlobalContect";
 
 export const metadata: Metadata = {
   title: "Ads Video AI",
@@ -16,9 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <Header />
+          {children}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
