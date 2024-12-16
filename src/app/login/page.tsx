@@ -23,12 +23,10 @@ export default function LoginPage() {
         { headers: { "Content-Type": "application/json" } }
       );
 
+      console.log("response",response);
       if (response.status === 200) {
         console.log("Login successful", response.data);
-        // Save session info if required (e.g., localStorage)
-        // localStorage.setItem("userSession", JSON.stringify(response.data));
-
-        // Redirect to the video list page
+        // For login tokenization
         router.push("/video-list");
       }
     } catch (err: any) {
