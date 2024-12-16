@@ -3,6 +3,8 @@ import Header from "@/components/Header/Header";
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
 import { AuthProvider } from "@/context/GlobalContect";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const metadata: Metadata = {
   title: "Ads Video AI",
@@ -20,6 +22,7 @@ export default function RootLayout({
         <AuthProvider>
           <Header />
           {children}
+          <ToastContainer />
           <Footer />
         </AuthProvider>
       </body>
