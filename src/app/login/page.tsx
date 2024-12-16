@@ -52,6 +52,11 @@ export default function LoginPage() {
     <>
       <div className="flex min-h-full bg-gray-50 flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+          <div>
+            <h2 className="mb-8 text-2xl/9 text-center font-bold tracking-tight text-gray-900">
+              Sign in to your account
+            </h2>
+          </div>
           <div className="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
             <form onSubmit={handleLogin} className="space-y-6">
               <div>

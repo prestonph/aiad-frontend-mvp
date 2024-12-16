@@ -54,7 +54,13 @@ export default function SignUpPage() {
   return (
     <>
       <div className="flex min-h-full bg-gray-50 flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+      
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+        <div>
+          <h2 className="mb-8 text-2xl/9 text-center font-bold tracking-tight text-gray-900">
+            Create an Account
+          </h2>
+        </div>
           <div className="bg-white px-6 py-12 shadow-sm sm:rounded-lg sm:px-12">
             <form onSubmit={handleSignUp} className="space-y-6">
               <div>
@@ -104,7 +110,7 @@ export default function SignUpPage() {
                   disabled={loading}
                   className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50"
                 >
-                  {loading ? "Signing up..." : "Sign up"}
+                  {loading ? "Signing up..." : "Create account"}
                 </button>
               </div>
             </form>
