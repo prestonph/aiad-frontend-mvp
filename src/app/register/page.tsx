@@ -27,7 +27,6 @@ export default function SignUpPage() {
         { headers: { "Content-Type": "application/json" } }
       );
 
-      console.log(response);
       if (response.status === 200) {
         toast.success("Account created successfully!");
         setSuccess("Account created successfully! Redirecting to login...");
