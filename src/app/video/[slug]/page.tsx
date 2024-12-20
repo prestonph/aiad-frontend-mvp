@@ -28,28 +28,6 @@ interface CurrentSession {
   scenesData: ScenesData;
 }
 
-// const Button = ({
-//   onClick,
-//   children,
-//   className,
-//   disabled,
-// }: {
-//   onClick: () => void;
-//   children: React.ReactNode;
-//   className?: string;
-//   disabled?: boolean;
-// }) => (
-//   <button
-//     className={`rounded-full py-2 px-4 font-medium text-white shadow-md ${
-//       disabled ? "bg-gray-400 cursor-not-allowed" : className
-//     }`}
-//     onClick={onClick}
-//     disabled={disabled}
-//   >
-//     {children}
-//   </button>
-// );
-
 export default function VideoPage({ params }: { params: { slug: string } }) {
   const [currentSession, setCurrentSession] = useState<CurrentSession | null>(
     null
@@ -60,10 +38,11 @@ export default function VideoPage({ params }: { params: { slug: string } }) {
   const [isModified, setIsModified] = useState<boolean>(false);
 
   const fetchSessionData = async () => {
+    const email = localStorage.getItem("user_email");
     try {
       const response = await axios.post(
         "https://api.anyad.app/v1/getsessions",
-        { email: "pluqin@fastmail.com" },
+        { email },
         { headers: { "Content-Type": "application/json" } }
       );
 

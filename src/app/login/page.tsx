@@ -31,6 +31,7 @@ export default function LoginPage() {
         toast.success("Logged in successfully!");
         if (setIsUserLoggedIn) {
           setIsUserLoggedIn(true);
+          localStorage.setItem("user_email", email);
           localStorage.setItem("isUserLoggedIn", "true");
         }
         router.push("/");

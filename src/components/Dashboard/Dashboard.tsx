@@ -22,17 +22,29 @@ export default function VideosDashboard() {
 
   const [videos, setVideos] = useState<Video[]>([]);
 
+  const getEmail = (): string | null => {
+    return localStorage.getItem("user_email");
+  };
+
   const handleCreateVideo = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    const email = getEmail();
+
+    if (!email) {
+      toast.error("Email not found. Please log in.");
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await axios.post(
         "https://api.anyad.app/v1/runzapier",
         {
           user_url: url,
-          email: "pluqin@fastmail.com",
+          email,
         },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -62,11 +74,17 @@ export default function VideosDashboard() {
   };
 
   const fetchVideos = async () => {
+    const email = getEmail();
+    if (!email) {
+      toast.error("Email not found. Please log in.");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "https://api.anyad.app/v1/getsessions",
         {
-          email: "pluqin@fastmail.com",
+          email,
         },
         { headers: { "Content-Type": "application/json" } }
       );
