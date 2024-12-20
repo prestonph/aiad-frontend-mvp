@@ -28,7 +28,9 @@ interface CurrentSession {
   scenesData: ScenesData;
 }
 
-export default function VideoPage({ params }: { params: { slug: string } }) {
+type Params = Promise<{ slug: string }>
+
+export default function VideoPage({ params }: { params: Params }) {
   const [currentSession, setCurrentSession] = useState<CurrentSession | null>(
     null
   );
@@ -55,8 +57,9 @@ export default function VideoPage({ params }: { params: { slug: string } }) {
           scenesData: JSON.parse(session.scenes_data),
         }));
 
+        const { slug } = await params;
         const session = sessions.find(
-          (video: any) => video.slug === params.slug
+          (video: any) => video.slug === slug
         );
         setCurrentSession(session);
       }
@@ -97,8 +100,10 @@ export default function VideoPage({ params }: { params: { slug: string } }) {
   const handleUpdate = async () => {
     if (!currentSession) return;
 
+    const { slug } = await params;
+
     const submitValue = {
-      session: params.slug,
+      session: slug,
       email: "pluqin@fastmail.com",
       updates: currentSession.scenesData.scenes.map((scene) => ({
         sceneSequence: scene.sequence,
