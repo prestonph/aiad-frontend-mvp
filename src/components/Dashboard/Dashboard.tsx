@@ -110,6 +110,14 @@ export default function VideosDashboard() {
 
   useEffect(() => {
     fetchVideos();
+
+    const frequencySeconds = 10;
+    const interval = setInterval(() => {
+      console.debug("Video List Page refresh");
+      fetchVideos();
+    }, frequencySeconds * 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
