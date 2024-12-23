@@ -18,6 +18,7 @@ export default function VideosDashboard() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [previousVideos, setPreviousVideos] = useState<Video[]>([]);
+  const [requireFetchVideos, setRequireFetchVideos] = useState<boolean>(false);
   const router = useRouter();
 
   const [videos, setVideos] = useState<Video[]>([]);
@@ -59,6 +60,7 @@ export default function VideosDashboard() {
             slug: `video-${prevVideos.length + 1}`,
           },
         ]);
+        setRequireFetchVideos(true);
       }
     } catch (err: any) {
       if (err.response?.status === 400) {
@@ -119,6 +121,13 @@ export default function VideosDashboard() {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if(requireFetchVideos) {
+      fetchVideos();
+      setRequireFetchVideos(false);
+    }
+  }, [requireFetchVideos]);
 
   return (
     <div className="max-w-7xl mx-auto p-6 ">
