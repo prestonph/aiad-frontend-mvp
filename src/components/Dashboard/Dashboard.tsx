@@ -126,6 +126,7 @@ export default function VideosDashboard() {
                             session.status === "scenes_merged" ? "completed" : "generating",
                             session.name,
                             session.start_time,
+                            session.id,
                             parseJsonString(session.scenes_data),
                         );
                     }
@@ -252,7 +253,7 @@ export default function VideosDashboard() {
                                 <br/>
                                 {video.createTime}
                                 <br/>
-                                {video.status === "generating" && " (generating)"}
+                                {video.status === "generating" && " (generating in a few minutes)"}
                             </h1>
                         </div>
                     </div>
