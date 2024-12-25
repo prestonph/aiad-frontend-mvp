@@ -19,7 +19,8 @@ interface Video {
 }
 
 function getCurrentTimeStr(): string {
-    const createDate = Date.now();
+    const createDate = new Date(Date.now());
+    // return createDate.toLocaleString()
     return `${createDate.getFullYear()}-${String(createDate.getMonth() + 1).padStart(2, '0')}-${String(createDate.getDate()).padStart(2, '0')} ${String(createDate.getHours()).padStart(2, '0')}:${String(createDate.getMinutes()).padStart(2, '0')}:${String(createDate.getSeconds()).padStart(2, '0')}`;
 }
 
@@ -81,8 +82,8 @@ export default function VideosDashboard() {
                     const slug = `video-${prevVideos.length + 1}`;
 
                     return [
-                        ...prevVideos,
                         newVideo(id, "generating", name, getCurrentTimeStr(), slug),
+                        ...prevVideos,
                     ]
                 });
                 setRequireFetchVideos(true);
@@ -120,15 +121,26 @@ export default function VideosDashboard() {
                 const sessions = response.data;
                 const formattedVideos: any = sessions.map(
                     (session: any, index: number) => {
-                        newVideo(
+                        return newVideo(
                             index + 1,
                             session.status === "scenes_merged" ? "completed" : "generating",
                             session.name,
                             session.start_time,
                             parseJsonString(session.scenes_data),
-                        )
+                        );
                     }
                 );
+
+                // Sort videos by createTime descending
+                formattedVideos.sort((a: any, b: any) => {
+                    if(a.createTime < b.createTime) {
+                        return 1;
+                    }
+                    if(a.createTime === b.createTime) {
+                        return 0;
+                    }
+                    return -1;
+                });
 
                 setPreviousVideos(formattedVideos);
             }
@@ -236,11 +248,11 @@ export default function VideosDashboard() {
                             }}
                         >
                             <h1 className="text-black hover:underline text-2xl font-semibold">
-                                {video.status === "generating" && " (generating)"}
-                                <br/>
-                                {video.name}
+                                {video.name ? video.name : "<unknown url>"}
                                 <br/>
                                 {video.createTime}
+                                <br/>
+                                {video.status === "generating" && " (generating)"}
                             </h1>
                         </div>
                     </div>
