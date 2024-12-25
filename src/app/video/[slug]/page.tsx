@@ -100,11 +100,12 @@ export default function VideoPage({ params }: { params: Params }) {
   const handleUpdate = async () => {
     if (!currentSession) return;
 
+    const email = localStorage.getItem("user_email");
     const { slug } = await params;
 
     const submitValue = {
       session: slug,
-      email: "pluqin@fastmail.com",
+      email: email,
       updates: currentSession.scenesData.scenes.map((scene) => ({
         sceneSequence: scene.sequence,
         newScript: scene.script,
