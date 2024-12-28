@@ -28,7 +28,7 @@ interface CurrentSession {
   scenesData: ScenesData;
 }
 
-type Params = Promise<{ slug: string }>
+type Params = Promise<{ slug: string }>;
 
 export default function VideoPage({ params }: { params: Params }) {
   const [currentSession, setCurrentSession] = useState<CurrentSession | null>(
@@ -58,9 +58,7 @@ export default function VideoPage({ params }: { params: Params }) {
         }));
 
         const { slug } = await params;
-        const session = sessions.find(
-          (video: any) => video.slug === slug
-        );
+        const session = sessions.find((video: any) => video.slug === slug);
         setCurrentSession(session);
       }
     } catch (err) {
@@ -163,8 +161,8 @@ export default function VideoPage({ params }: { params: Params }) {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6">Video Editor</h1>
-      <div className="flex flex-col md:flex-row gap-10">
-        <div className="relative h-[500px] md:h-[766px] w-full md:w-[50%] bg-black">
+      <div className="flex flex-col md:flex-row gap-10 w-full">
+        <div className="relative h-[500px] md:h-[700px] bg-black">
           <video
             src={scenesData.merge.videoDownloadURL}
             controls
@@ -172,7 +170,7 @@ export default function VideoPage({ params }: { params: Params }) {
           />
         </div>
 
-        <div className="w-full md:w-[50%] space-y-6">
+        <div className="w-full md:w-[65%] space-y-6">
           {scenesData.scenes.map((scene, index) => (
             <div
               key={scene.sequence}
@@ -188,7 +186,7 @@ export default function VideoPage({ params }: { params: Params }) {
                       className="w-full p-2 border rounded-md"
                     />
                   ) : (
-                    <p className="text-sm text-gray-700">{scene.script}</p>
+                    <p className="text-lg text-gray-700">{scene.script}</p>
                   )}
                 </div>
 
