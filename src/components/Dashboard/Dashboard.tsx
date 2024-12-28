@@ -223,7 +223,7 @@ export default function VideosDashboard() {
       <div className="grid grid-cols-1 max-w-4xl mx-auto sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
         {previousVideos.map((video, index) => (
           <div key={video.id} className="flex flex-col items-center">
-            <div className="relative aspect-video bg-black rounded-lg flex items-center justify-center h-96 w-full">
+            <div className="relative aspect-video bg-black rounded-lg flex items-center justify-center h-[500px] w-full">
               {video.status === "generating" && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <svg
