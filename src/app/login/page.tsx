@@ -22,7 +22,7 @@ export default function LoginPage() {
 
     try {
       const response = await axios.post(
-        "https://api.anyad.app/v1/login",
+        "https://uat.api.anyad.app/v1/login",
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );

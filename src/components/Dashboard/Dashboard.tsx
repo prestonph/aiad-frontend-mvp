@@ -82,7 +82,7 @@ export default function VideosDashboard() {
 
     try {
       const response = await axios.post(
-        "https://api.anyad.app/v1/runzapier",
+        "https://uat.api.anyad.app/v1/runzapier",
         {
           user_url: url,
           email,
@@ -128,7 +128,7 @@ export default function VideosDashboard() {
 
     try {
       const response = await axios.post(
-        "https://api.anyad.app/v1/getsessions",
+        "https://uat.api.anyad.app/v1/getsessions",
         {
           email,
         },

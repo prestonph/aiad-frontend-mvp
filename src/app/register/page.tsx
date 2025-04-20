@@ -22,7 +22,7 @@ export default function SignUpPage() {
 
     try {
       const response = await axios.post(
-        "https://api.anyad.app/v1/register",
+        "https://uat.api.anyad.app/v1/register",
         { email, password },
         { headers: { "Content-Type": "application/json" } }
       );
