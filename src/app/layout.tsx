@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header/Header";
 import "./globals.css";
-import Footer from "@/components/Footer/Footer";
+import { Footer } from '@/components/elements/footer'
 import { AuthProvider } from "@/context/GlobalContect";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { publicFooterLinks } from '@/data/site-info'
+
 
 export const metadata: Metadata = {
   title: "Ads Video AI",
@@ -24,7 +26,7 @@ export default function RootLayout({
           <Header />
           {children}
           <ToastContainer />
-          <Footer />
+          <Footer footerNav={publicFooterLinks} />
         </AuthProvider>
         </div>
       </body>

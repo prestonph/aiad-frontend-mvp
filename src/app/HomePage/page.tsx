@@ -17,6 +17,7 @@ function Dashboard() {
       <Process process={HowItWorksData} />
       <Pricing />
     </section>
+    
   );
 }
 
