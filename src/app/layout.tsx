@@ -19,12 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <div className=' overflow-hidden mx-auto bg-[#05111A]'>
         <AuthProvider>
           <Header />
           {children}
           <ToastContainer />
           <Footer />
         </AuthProvider>
+        </div>
       </body>
     </html>
   );

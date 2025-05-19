@@ -1,3 +1,401 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	:root {
+		/* --background: 266 56% 99%; */
+		--foreground: 0 0% 3.9%;
+		--muted: 0 0% 96.1%;
+		--muted-foreground: 0 0% 45.1%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 3.9%;
+		--input: 0 0% 89.8%;
+		--primary-foreground: 0 0% 98%;
+		--secondary-foreground: 0 0% 9%;
+		--accent: 0 0% 96.1%;
+		--accent-foreground: 0 0% 9%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
+		--ring: 0 0% 3.9%;
+		--radius: 0.5rem;
+
+		--primary-100: #10293a;
+		--border: 0 0% 89.8%;
+		--border-2: #5c6972;
+		--theme-100: #ff845d10;
+		--theme-300: #ff845d30;
+		--black: #072032;
+		--black-2: #5c6972;
+		--black-old-2: #1c1d20;
+		--white: #fff;
+		--white-2: #9ba0a3;
+		--white-3: #fafafa;
+		--gray: #666666;
+		--gray-2: #d9d9d9;
+		--sec_bg: #fbf7f5;
+		--sec_bg-2: #f7f7fa;
+		--sec_bg-3: #f8faf9;
+		--destructive: #ff3333;
+
+		--theme: rgb(108, 31, 209);
+		--action: rgb(108, 31, 209);
+		--primary: 0 0% 9%;
+		--secondary: 0 0% 96.1%;
+		--btn-bg-main: rgb(108, 31, 209);
+		--btn-bg-hover: transparent;
+		--btn-text-main: #fff;
+		--btn-text-hover: #fff;
+		--btn2-bg-hover: rgb(108, 31, 209);
+		--btn2-text-hover: #fff;
+		--btn-border: #41494d;
+
+		/* --background: 0 0% 100%; */
+
+		--background: 0 0% 100%;
+
+		/**/
+		/* --background: 222.2 47.4% 11.2%; */
+		--foreground: 210 40% 98%;
+
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+
+		--card: 215 27.9% 16.9%;
+		--card-foreground: 210 40% 98%;
+
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+
+		--secondary-foreground: 210 40% 98%;
+
+		--accent: rgb(108, 31, 209);
+		--accent-foreground: 210 40% 98%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+
+		--success: 154 52% 55%;
+		--success-foreground: 138.5 76.5% 96.7%;
+
+		--warning: 16 93% 70%;
+		--warning-foreground: 33.3 100% 96.5%;
+
+		--info: 185 96% 51%;
+		--info-foreground: 183.2 100% 96.3%;
+
+		--ring: 212.7 26.8% 83.9%;
+
+		--default-950: 210 40% 98%;
+		--default-900: 210 40% 96.1%;
+		--default-800: 214.3 31.8% 91.4%;
+		--default-700: 212.7 26.8% 83.9%;
+		--default-600: 215 20.2% 65.1%;
+		--default-500: 215.4 16.3% 46.9%;
+		--default-400: 215.3 19.3% 34.5%;
+		--default-300: 215.3 25% 26.7%;
+		--default-200: 217.2 32.6% 17.5%;
+		--default-100: 222.2 47.4% 11.2%;
+		--default-50: 222.2 84% 4.9%;
+		--default: 213.8 100% 96.9%;
+		--default-foreground: 222.2 47.4% 11.2%;
+
+		--sidebar: 215 27.9% 16.9%;
+		--header: 215 27.9% 16.9%;
+		--menu-arrow: 215.3 25% 26.7%;
+		--menu-arrow-active: 215.3 19.3% 34.5%;
+		--menu-foreground: 214.3 31.8% 91.4%;
+		--chart-1: 12 76% 61%;
+		--chart-2: 173 58% 39%;
+		--chart-3: 197 37% 24%;
+		--chart-4: 43 74% 66%;
+		--chart-5: 27 87% 67%;
+	}
+  .dark {
+		--background: 0 0% 3.9%;
+		--foreground: 0 0% 98%;
+		--card: 0 0% 3.9%;
+		--card-foreground: 0 0% 98%;
+		--popover: 0 0% 3.9%;
+		--popover-foreground: 0 0% 98%;
+		--primary: 0 0% 98%;
+		--primary-foreground: 0 0% 9%;
+		--secondary: 0 0% 14.9%;
+		--secondary-foreground: 0 0% 98%;
+		--muted: 0 0% 14.9%;
+		--muted-foreground: 0 0% 63.9%;
+		--accent: 0 0% 14.9%;
+		--accent-foreground: 0 0% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 0 0% 14.9%;
+		--input: 0 0% 14.9%;
+		--ring: 0 0% 83.1%;
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	body {
+		@apply text-secondary font-primary leading-none bg-background;
+	}
+
+	p {
+		@apply p-0 m-0 leading-[1.44] font-normal text-[16px] lg:text-[18px] text-secondary;
+	}
+
+	header {
+		@apply -mb-[1px] z-[100];
+	}
+
+	section {
+		@apply -mb-[1px];
+	}
+
+	.input-group :not(:first-child) input {
+		border-top-left-radius: 0 !important;
+		border-bottom-left-radius: 0 !important;
+	}
+
+	.input-group.merged :not(:first-child) input {
+		border-left-width: 0 !important;
+		padding-left: 0px !important;
+	}
+
+	.input-group :not(:last-child) input {
+		border-top-right-radius: 0 !important;
+		border-bottom-right-radius: 0 !important;
+	}
+
+	.input-group.merged :not(:last-child) input {
+		border-right: 0px !important;
+		padding-right: 0px !important;
+	}
+
+	.no-scrollbar::-webkit-scrollbar {
+		width: 0px;
+	}
+
+	.no-scrollbar::-webkit-scrollbar-thumb {
+		background-color: transparent;
+	}
+}
+
+.logo-box-3 {
+	@apply flex justify-center items-center min-h-screen;
+}
+
+.v3-right-column {
+	@apply flex flex-col items-center justify-center;
+}
+
+.has-sticky-header::after {
+	position: absolute;
+	z-index: -10;
+	--tw-backdrop-blur: blur(12px);
+	backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+		var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+		var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+		var(--tw-backdrop-sepia);
+	--tw-content: '';
+	content: var(--tw-content);
+	background: linear-gradient(
+		180deg,
+		rgba(var(--v-theme-background)) 44%,
+		rgba(var(--v-theme-background)) 73%,
+		rgba(var(--v-theme-background))
+	);
+	background-repeat: repeat;
+	block-size: 5.5rem;
+	inset-block-start: -2.5rem;
+	inset-inline-end: 0;
+	inset-inline-start: 0;
+	-webkit-mask: linear-gradient(black, black 18%, transparent 100%);
+	mask: linear-gradient(black, black 18%, transparent 100%);
+}
+.has-sticky-footer::after {
+	position: absolute;
+	z-index: -10;
+	--tw-backdrop-blur: blur(12px);
+	backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness)
+		var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate)
+		var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate)
+		var(--tw-backdrop-sepia);
+	--tw-content: '';
+	content: var(--tw-content);
+	background: linear-gradient(
+		180deg,
+		rgba(var(--v-theme-background)) 44%,
+		rgba(var(--v-theme-background)) 73%,
+		rgba(var(--v-theme-background))
+	);
+	background-repeat: repeat;
+	block-size: 5.5rem;
+	inset-block-start: 1.5rem;
+	inset-inline-end: 0;
+	inset-inline-start: 0;
+	-webkit-mask: linear-gradient(black, black 18%, transparent 100%);
+	mask: linear-gradient(black, black 18%, transparent 100%);
+}
+
+.app-height {
+	height: calc(var(--vh, 1vh) * 100 - 10.1rem);
+}
+
+@layer utilities {
+	.container {
+		@apply max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1320px] px-3;
+	}
+
+	.box-layout {
+		@apply max-w-[1600px] mx-auto !overflow-hidden;
+	}
+
+	.btn-span {
+		@apply relative inline-block p-0 transition-transform duration-500 origin-origin-1 transform transform-style-3d before:absolute before:top-full before:left-0 before:w-full before:h-full before:content-[attr(data-text)] before:transition-colors before:duration-500 before:transform before:-rotate-x-90 before:origin-origin-1 before:text-center group-hover:transform group-hover:text-inherit group-hover:rotate-x-90 group-hover:-translate-y-[2px];
+	}
+
+	/* sec space  */
+	.sec_space {
+		@apply py-[70px] md:py-[100px] xl:py-[130px] 2xl:py-[200px];
+	}
+
+	.sec_space1 {
+		@apply py-[60px] md:py-[80px] xl:py-[100px] 2xl:py-[130px];
+	}
+
+	.sec_space2 {
+		@apply py-[60px] md:py-[100px] xl:py-[150px] 2xl:py-[200px];
+	}
+
+	.sec_space3 {
+		@apply py-[60px] md:py-[90px] xl:py-[120px] 2xl:py-[150px];
+	}
+
+	.sec_space4 {
+		@apply py-[60px] md:py-[80px] xl:py-[100px] 2xl:py-[120px];
+	}
+
+	/* sec space bottom  */
+
+	.sec_space_bottom {
+		@apply pb-[60px] md:pb-[80px] xl:pb-[120px] 2xl:pb-[180px];
+	}
+
+	.sec_space_bottom1 {
+		@apply pb-[70px] md:pb-[100px] xl:pb-[130px] 2xl:pb-[200px];
+	}
+
+	.sec_space_bottom2 {
+		@apply pb-[60px] md:pb-[80px] xl:pb-[100px] 2xl:pb-[130px];
+	}
+
+	.sec_space_bottom3 {
+		@apply pb-[60px] md:pb-[90px] xl:pb-[120px] 2xl:pb-[150px];
+	}
+
+	.sec_space_bottom4 {
+		@apply pb-[60px] md:pb-[80px] xl:pb-[100px] 2xl:pb-[120px];
+	}
+
+	/* sec space top  */
+
+	.sec_space_top1 {
+		@apply pt-[100px] md:pt-[130px] xl:pt-[130px] 2xl:pt-[200px];
+	}
+
+	.sec_space_top2 {
+		@apply pt-[60px] md:pt-[80px] xl:pt-[100px] 2xl:pt-[130px];
+	}
+
+	.sec_space_top3 {
+		@apply pt-[60px] md:pt-[90px] xl:pt-[120px] 2xl:pt-[150px];
+	}
+
+	.sec_space_top4 {
+		@apply pt-[50px] md:pt-[70px] xl:pt-[100px] 2xl:pt-[150px];
+	}
+
+	/* sec title  */
+
+	.sec_title1 {
+		@apply text-[30px] md:text-[35px] lg:text-[40px] xl:text-[55px] 2xl:text-[60px];
+	}
+
+	.sec_title2 {
+		@apply text-[28px] md:text-[30px] lg:text-[40px] xl:text-[50px];
+	}
+
+	/* rtl mode  */
+
+	.rtl_y {
+		@apply rtl:transform rtl:rotate-y-[180deg];
+	}
+
+	/* common style  */
+	.wc-y-anim {
+		@apply animate-wc-y-anim;
+	}
+
+	.btn_mask {
+		@apply before:absolute before:content-[''] before:w-full before:h-full before:top-0 before:left-0 before:bg-gradient-105-full before:bg-cover before:bg-center before:bg-no-repeat before:mask-[url(/assets/imgs/shape/shape-s-42.png)] before:mask-no-repeat before:mask-size-[100%_100%] before:mask-position-center;
+	}
+
+	.blog_details {
+		p {
+			@apply mb-[26px];
+		}
+
+		ul {
+			@apply my-[21px] ms-[37px] md:ms-[77px];
+		}
+
+		li {
+			@apply text-[18px] leading-[1.66] text-primary ps-[25px] relative before:absolute before:content-["+"] before:top-[3px] before:text-[22px] before:start-0 before:font-light before:leading-none;
+		}
+	}
+
+	.full-body-border {
+		@apply relative before:hidden before:md:block before:absolute before:content-[''] before:w-[1px] before:h-[50000px] before:top-full before:start-0 before:bg-border after:hidden after:md:block after:absolute after:content-[''] after:w-[1px] after:h-[50000px] after:top-full after:end-0 after:bg-border;
+	}
+
+	.shape-design {
+		@apply w-[50px] lg:w-[70px] xl:w-[100px] h-[50px] lg:h-[70px] xl:h-[100px] rounded-[40px] bg-[#ffffff1a] drop-shadow-[20px] flex items-center justify-center border border-[#ffffff1a] [&>img]:max-w-[30px];
+	}
+}
+
+.plus_jakarta_sans-medium {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply text-primary font-plus_jakarta_sans font-medium leading-[1.16];
+	}
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+	}
+  body {
+    @apply bg-background text-foreground;
+	}
+}
