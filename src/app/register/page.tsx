@@ -52,11 +52,11 @@ export default function SignUpPage() {
 
   return (
     <>
-      <div className="flex min-h-full bg-gray-50 flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="flex min-h-[65vh] flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
       
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
         <div>
-          <h2 className="mb-8 text-2xl/9 text-center font-bold tracking-tight text-gray-900">
+          <h2 className="mb-8 text-2xl/9 text-center font-bold tracking-tight text-white">
             Create an Account
           </h2>
         </div>
