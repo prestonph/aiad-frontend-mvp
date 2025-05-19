@@ -11,6 +11,8 @@ import { ctadata } from "@/data/cta";
 import { Pricing } from "@/components/sections/pricing";
 import { PricingData } from "@/data/pricing";
 import { Separator } from "@/components/ui/seperator";
+import { FeatureSection } from "@/components/sections/feature-section";
+import { featureData } from "@/data/feature";
 
 function Dashboard() {
   return (
@@ -18,6 +20,7 @@ function Dashboard() {
       <Hero />
       <VideoGallery items={videoGalleryData} />
       <Brands brand={brandData} />
+      <FeatureSection feature={featureData} />
       <Process process={HowItWorksData} />
       <Pricing pricing={PricingData} />
       <Separator className='bg-[#252D33] my-8 container' />

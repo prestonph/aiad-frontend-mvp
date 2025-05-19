@@ -1,59 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
-import Button from "../Button/Button";
 import { SectionWrapper } from "../wrapper/section-wrapper";
 import { Generator } from "../elements/generator";
-const images = [
-  {
-    src: "https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80",
-    alt: "Unsplash Image 1",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80",
-    alt: "Unsplash Image 3",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80",
-    alt: "Unsplash Image 2",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80",
-    alt: "Unsplash Image 3",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80",
-    alt: "Unsplash Image 4",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80",
-    alt: "Unsplash Image 1",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80",
-    alt: "Unsplash Image 1",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80",
-    alt: "Unsplash Image 3",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=396&h=528&q=80",
-    alt: "Unsplash Image 2",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80",
-    alt: "Unsplash Image 3",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80",
-    alt: "Unsplash Image 4",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80",
-    alt: "Unsplash Image 1",
-  },
-];
 
 const Hero = () => {
   return (
@@ -78,55 +26,6 @@ const Hero = () => {
         <div className='mt-[36px] xl:mt-[46px] 2xl:mt-[56px]'>
 				<Generator />
 			</div>
-        {/* <p className="mt-6 text-md font-normal text-pretty text-gray-500 sm:max-w-md sm:text-xl/8 lg:max-w-96">
-          Trusted by professional worldwide. Quick and efficient
-        </p>
-
-        <p className="mt-6 text-md font-medium  text-gray-500">
-          Already a member?{" "}
-          <Link
-            href="/register"
-            className="text-md font-semibold text-[#007AFF] hover:text-indigo-500"
-          >
-            Sign in
-          </Link>
-        </p> */}
-        {/* <div className="max-lg:mt-5">
-              <div className="flex flex-col xl:flex-row gap-8">
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full md:w-auto">
-                  {images.slice(0, 6).map((image, index) => (
-                    <div key={index} className="w-full">
-                      <div className="relative">
-                        <Image
-                          alt={image.alt}
-                          width={100}
-                          height={100}
-                          src={image.src}
-                          className="h-36 w-full rounded-[16px] bg-gray-900/5 object-cover shadow-lg"
-                        />
-                        <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-gray-900/10 ring-inset" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full md:w-auto">
-                  {images.slice(6, 12).map((image, index) => (
-                    <div key={index} className="w-full">
-                      <div className="relative">
-                        <Image
-                          alt={image.alt}
-                          width={100}
-                          height={100}
-                          src={image.src}
-                          className="h-36 w-full rounded-[16px] bg-gray-900/5 object-cover shadow-lg"
-                        />
-                        <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-gray-900/10 ring-inset" />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div> */}
       </SectionWrapper>
     </section>
   );
