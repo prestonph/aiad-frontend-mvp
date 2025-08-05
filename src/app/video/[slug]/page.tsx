@@ -43,7 +43,7 @@ export default function VideoPage({ params }: { params: Params }) {
     const email = localStorage.getItem("user_email");
     try {
       const response = await axios.post(
-        "https://uat.api.anyad.app/v1/getsessions",
+        "https://api.anyad.app/v1/getsessions",
         { email },
         { headers: { "Content-Type": "application/json" } }
       );
@@ -114,7 +114,7 @@ export default function VideoPage({ params }: { params: Params }) {
 
     try {
       const response = await axios.post(
-        "https://uat.api.anyad.app/v1/partialupdate",
+        "https://api.anyad.app/v1/partialupdate",
         submitValue,
         {
           headers: {
